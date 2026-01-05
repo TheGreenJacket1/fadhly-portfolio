@@ -1,0 +1,1736 @@
+﻿<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio Muhammad Auliya Fadhly Robby - Mahasiswa Informatika & Penulis Konten Produktif dengan 90+ artikel terpublikasi."
+    />
+    <title>Fadhly.dev | Portfolio - Penulis Konten & Informatika</title>
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300f5ff'/%3E%3Cstop offset='100%25' stop-color='%230ea5e9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='%230a0e1a'/%3E%3Ctext x='50' y='68' font-family='Arial' font-size='60' font-weight='bold' fill='url(%23g)' text-anchor='middle'%3EF%3C/text%3E%3C/svg%3E"
+    />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Fadhly.dev | Portfolio - Penulis Konten & Informatika"
+    />
+    <meta
+      property="og:description"
+      content="Mahasiswa Informatika UPN Veteran Yogyakarta & Penulis Konten Produktif dengan 90+ artikel terpublikasi di Medium & IDN Times."
+    />
+    <meta property="og:url" content="https://fadhly.dev" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fadhly.dev | Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Mahasiswa Informatika & Penulis Konten Produktif dengan 90+ artikel."
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              outfit: ["Outfit", "sans-serif"],
+            },
+            colors: {
+              "neon-cyan": "#00f5ff",
+              "neon-blue": "#0ea5e9",
+              "deep-space": "#0a0e1a",
+              "deep-space-light": "#111827",
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "float-slow": "float 8s ease-in-out infinite",
+              "float-delayed": "float 6s ease-in-out 2s infinite",
+              glow: "glow 2s ease-in-out infinite alternate",
+              "fade-in-up": "fadeInUp 0.6s ease-out forwards",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-20px)" },
+              },
+              glow: {
+                "0%": { boxShadow: "0 0 20px rgba(0, 245, 255, 0.3)" },
+                "100%": { boxShadow: "0 0 40px rgba(0, 245, 255, 0.6)" },
+              },
+              fadeInUp: {
+                "0%": { opacity: "0", transform: "translateY(30px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      * {
+        font-family: "Outfit", sans-serif;
+      }
+
+      /* Glassmorphism - Dark Mode Only */
+      .glass {
+        background: rgba(10, 14, 26, 0.7);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(0, 245, 255, 0.1);
+      }
+
+      /* Background Gradient - Dark Mode Only */
+      body {
+        background: linear-gradient(
+          135deg,
+          #0a0e1a 0%,
+          #1a1f35 50%,
+          #0d1525 100%
+        );
+        min-height: 100vh;
+      }
+
+      /* Floating Orbs */
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.4;
+        pointer-events: none;
+      }
+
+      .orb-cyan {
+        background: #00f5ff;
+      }
+
+      .orb-purple {
+        background: #8b5cf6;
+      }
+
+      /* Card Hover Effects */
+      .card-hover {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .card-hover:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 25px 50px -12px rgba(0, 245, 255, 0.25);
+      }
+
+      /* Portfolio Card Image Overlay */
+      .portfolio-card .overlay {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .portfolio-card:hover .overlay {
+        opacity: 1;
+      }
+
+      /* Smooth Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #0a0e1a;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #00f5ff;
+        border-radius: 4px;
+      }
+
+      /* Mobile Menu */
+      .mobile-menu {
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+      }
+
+      .mobile-menu.active {
+        transform: translateX(0);
+      }
+
+      /* Section Animations */
+      .section-animate {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .section-animate.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Text Gradient */
+      .text-gradient {
+        background: linear-gradient(135deg, #00f5ff, #0ea5e9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Skill bar animation */
+      .skill-bar {
+        transition: width 1s ease-out;
+      }
+
+      /* Timeline styling */
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(180deg, #00f5ff, #0ea5e9);
+      }
+
+      /* Counter animation */
+      .counter {
+        display: inline-block;
+      }
+
+      /* Scroll progress bar */
+      #scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #00f5ff, #0ea5e9);
+        z-index: 9999;
+        transition: width 0.1s ease-out;
+      }
+
+      /* Mobile menu overlay */
+      .menu-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 40;
+      }
+
+      .menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <!-- Floating Orbs Background -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+      <div class="orb orb-cyan w-96 h-96 -top-48 -left-48 animate-float"></div>
+      <div
+        class="orb orb-purple w-80 h-80 top-1/3 right-0 animate-float-slow"
+      ></div>
+      <div
+        class="orb orb-cyan w-64 h-64 bottom-20 left-1/4 animate-float-delayed"
+      ></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" style="width: 0%"></div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="menu-overlay" class="menu-overlay"></div>
+
+    <!-- Navbar -->
+    <nav
+      id="navbar"
+      class="fixed top-0 left-0 right-0 z-50 glass transition-all duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 md:h-20">
+          <!-- Logo -->
+          <a href="#" class="text-xl md:text-2xl font-bold">
+            <span class="text-gradient">Fadhly</span
+            ><span class="text-white">.dev</span>
+          </a>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#tentang"
+              class="text-gray-300 hover:text-neon-cyan transition-colors font-medium"
+              >Tentang</a
+            >
+            <a
+              href="#jasa"
+              class="text-gray-300 hover:text-neon-cyan transition-colors font-medium"
+              >Jasa</a
+            >
+            <a
+              href="#portofolio"
+              class="text-gray-300 hover:text-neon-cyan transition-colors font-medium"
+              >Portofolio</a
+            >
+            <a
+              href="#kontak"
+              class="text-gray-300 hover:text-neon-cyan transition-colors font-medium"
+              >Kontak</a
+            >
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="flex items-center">
+            <button
+              id="mobile-menu-btn"
+              class="md:hidden p-2 text-white"
+              aria-label="Menu"
+            >
+              <i class="fas fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="mobile-menu fixed top-0 right-0 h-screen w-72 glass md:hidden z-50"
+      >
+        <div class="flex flex-col p-6">
+          <button id="mobile-menu-close" class="self-end p-2 text-white mb-8">
+            <i class="fas fa-times text-2xl"></i>
+          </button>
+          <a
+            href="#tentang"
+            class="py-4 text-lg text-white border-b border-white/10 mobile-link"
+            >Tentang</a
+          >
+          <a
+            href="#jasa"
+            class="py-4 text-lg text-white border-b border-white/10 mobile-link"
+            >Jasa</a
+          >
+          <a
+            href="#portofolio"
+            class="py-4 text-lg text-white border-b border-white/10 mobile-link"
+            >Portofolio</a
+          >
+          <a href="#kontak" class="py-4 text-lg text-white mobile-link"
+            >Kontak</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="hero"
+      class="relative min-h-screen flex items-center justify-center px-4 pt-20 overflow-hidden"
+    >
+      <div
+        class="relative z-10 text-center max-w-4xl mx-auto animate-float-slow"
+      >
+        <!-- Badge -->
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6 md:mb-8"
+        >
+          <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+          <span class="text-sm text-gray-300">Tersedia untuk proyek baru</span>
+        </div>
+
+        <!-- Headline -->
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight text-white"
+        >
+          Mahasiswa Informatika &<br />
+          <span class="text-gradient">Penulis Konten Produktif</span>
+        </h1>
+
+        <!-- Sub-headline -->
+        <p
+          class="text-base sm:text-lg md:text-xl mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed px-4 text-gray-300"
+        >
+          Menggabungkan logika teknis dengan kreativitas kata-kata.
+          <span class="text-neon-cyan font-semibold">90+ Artikel</span>
+          terpublikasi di Medium & IDN Times. Siap membantu bisnis Anda.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-4 px-4"
+        >
+          <a
+            href="https://wa.me/6287845352183"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-2xl shadow-lg shadow-green-500/30 hover:shadow-green-500/50 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
+          >
+            <i class="fab fa-whatsapp text-xl"></i>
+            Hubungi via WhatsApp
+          </a>
+          <a
+            href="#portofolio"
+            class="w-full sm:w-auto px-8 py-4 glass text-white font-semibold rounded-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
+          >
+            <i class="fas fa-arrow-down"></i>
+            Lihat Karya
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <i class="fas fa-chevron-down text-neon-cyan text-2xl"></i>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="tentang" class="relative py-20 md:py-32 px-4 section-animate">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Text Content -->
+          <div class="order-2 lg:order-1">
+            <span
+              class="inline-block px-4 py-1 rounded-full glass text-sm text-neon-cyan font-medium mb-4"
+            >
+              Tentang Saya
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+              Muhammad Auliya <span class="text-gradient">Fadhly Robby</span>
+            </h2>
+            <p class="text-gray-300 text-lg leading-relaxed mb-8">
+              Mahasiswa
+              <span class="text-neon-cyan font-medium"
+                >Informatika UPN Veteran Yogyakarta</span
+              >
+              dengan latar belakang kuat dalam manajemen organisasi dan kreasi
+              konten digital. Berpengalaman memimpin tim dalam berbagai
+              organisasi kesiswaan dengan fokus pada strategi komunikasi dan
+              publikasi. Memiliki keahlian teknis dalam desain grafis dan
+              penulisan konten (90+ artikel terpublikasi).
+            </p>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-4">
+              <div class="glass rounded-2xl p-4 md:p-6 text-center card-hover">
+                <div class="text-2xl md:text-4xl font-bold text-gradient mb-2">
+                  90+
+                </div>
+                <div class="text-xs md:text-sm text-gray-400">
+                  Artikel Medium & IDN Times
+                </div>
+              </div>
+              <div class="glass rounded-2xl p-4 md:p-6 text-center card-hover">
+                <div class="text-2xl md:text-4xl font-bold text-gradient mb-2">
+                  2 Tahun
+                </div>
+                <div class="text-xs md:text-sm text-gray-400">
+                  Pengalaman Organisasi
+                </div>
+              </div>
+              <div class="glass rounded-2xl p-4 md:p-6 text-center card-hover">
+                <div class="text-2xl md:text-4xl font-bold text-gradient mb-2">
+                  100%
+                </div>
+                <div class="text-xs md:text-sm text-gray-400">
+                  Dedikasi & Tepat Waktu
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual Element -->
+          <div class="order-1 lg:order-2 relative">
+            <div class="relative w-64 h-64 md:w-80 md:h-80 mx-auto">
+              <!-- Decorative Circle -->
+              <div
+                class="absolute inset-0 rounded-full dark:bg-gradient-to-br dark:from-neon-cyan/20 dark:to-purple-500/20 bg-gradient-to-br from-neon-blue/20 to-indigo-500/20 animate-pulse"
+              ></div>
+              <div
+                class="absolute inset-4 rounded-full glass flex items-center justify-center animate-float"
+              >
+                <div class="text-center">
+                  <i
+                    class="fas fa-code text-5xl md:text-6xl text-neon-cyan mb-4"
+                  ></i>
+                  <p class="text-white font-semibold">Writer + Tech</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="relative py-20 md:py-32 px-4 section-animate">
+      <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-12 md:mb-16">
+          <span
+            class="inline-block px-4 py-1 rounded-full glass text-sm text-neon-cyan font-medium mb-4"
+          >
+            Keahlian
+          </span>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            Skills & <span class="text-gradient">Expertise</span>
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Kombinasi kemampuan teknis dan kreatif yang saya kuasai
+          </p>
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Left Column -->
+          <div class="space-y-6">
+            <!-- Skill 1 -->
+            <div class="glass rounded-2xl p-6">
+              <div class="flex justify-between items-center mb-3">
+                <div class="flex items-center gap-3">
+                  <i class="fas fa-pen-fancy text-neon-cyan text-xl"></i>
+                  <span class="text-white font-semibold"
+                    >Penulisan Konten & SEO</span
+                  >
+                </div>
+                <span class="text-neon-cyan font-bold">95%</span>
+              </div>
+              <div
+                class="h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden"
+              >
+                <div
+                  class="skill-bar h-full bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"
+                  style="width: 95%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Skill 2 -->
+            <div class="glass rounded-2xl p-6">
+              <div class="flex justify-between items-center mb-3">
+                <div class="flex items-center gap-3">
+                  <i
+                    class="fas fa-newspaper text-purple-400 text-purple-600 text-xl"
+                  ></i>
+                  <span class="text-white font-semibold"
+                    >Jurnalistik & Opini</span
+                  >
+                </div>
+                <span class="text-purple-400 text-purple-600 font-bold"
+                  >90%</span
+                >
+              </div>
+              <div
+                class="h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden"
+              >
+                <div
+                  class="skill-bar h-full bg-gradient-to-r from-purple-400 to-pink-500 rounded-full"
+                  style="width: 90%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Skill 3 -->
+            <div class="glass rounded-2xl p-6">
+              <div class="flex justify-between items-center mb-3">
+                <div class="flex items-center gap-3">
+                  <i
+                    class="fas fa-database dark:text-emerald-400 text-emerald-600 text-xl"
+                  ></i>
+                  <span class="text-white font-semibold"
+                    >Notion & Productivity</span
+                  >
+                </div>
+                <span class="dark:text-emerald-400 text-emerald-600 font-bold"
+                  >85%</span
+                >
+              </div>
+              <div
+                class="h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden"
+              >
+                <div
+                  class="skill-bar h-full bg-gradient-to-r from-emerald-400 to-teal-500 rounded-full"
+                  style="width: 85%"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="space-y-6">
+            <!-- Skill 4 -->
+            <div class="glass rounded-2xl p-6">
+              <div class="flex justify-between items-center mb-3">
+                <div class="flex items-center gap-3">
+                  <i
+                    class="fas fa-paint-brush text-pink-400 text-pink-600 text-xl"
+                  ></i>
+                  <span class="text-white font-semibold"
+                    >Canva & Desain Grafis</span
+                  >
+                </div>
+                <span class="text-pink-400 text-pink-600 font-bold">80%</span>
+              </div>
+              <div
+                class="h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden"
+              >
+                <div
+                  class="skill-bar h-full bg-gradient-to-r from-pink-400 to-rose-500 rounded-full"
+                  style="width: 80%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Skill 5 -->
+            <div class="glass rounded-2xl p-6">
+              <div class="flex justify-between items-center mb-3">
+                <div class="flex items-center gap-3">
+                  <i
+                    class="fas fa-file-word dark:text-blue-400 text-blue-600 text-xl"
+                  ></i>
+                  <span class="text-white font-semibold"
+                    >Microsoft Office Suite</span
+                  >
+                </div>
+                <span class="dark:text-blue-400 text-blue-600 font-bold"
+                  >85%</span
+                >
+              </div>
+              <div
+                class="h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden"
+              >
+                <div
+                  class="skill-bar h-full bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full"
+                  style="width: 85%"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Skill 6 -->
+            <div class="glass rounded-2xl p-6">
+              <div class="flex justify-between items-center mb-3">
+                <div class="flex items-center gap-3">
+                  <i
+                    class="fas fa-code dark:text-orange-400 text-orange-600 text-xl"
+                  ></i>
+                  <span class="text-white font-semibold"
+                    >HTML, CSS, JavaScript</span
+                  >
+                </div>
+                <span class="dark:text-orange-400 text-orange-600 font-bold"
+                  >70%</span
+                >
+              </div>
+              <div
+                class="h-3 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden"
+              >
+                <div
+                  class="skill-bar h-full bg-gradient-to-r from-orange-400 to-amber-500 rounded-full"
+                  style="width: 70%"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="jasa" class="relative py-20 md:py-32 px-4 section-animate">
+      <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-12 md:mb-16">
+          <span
+            class="inline-block px-4 py-1 rounded-full glass text-sm text-neon-cyan font-medium mb-4"
+          >
+            Layanan
+          </span>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            Jasa yang Saya <span class="text-gradient">Tawarkan</span>
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Berbagai layanan profesional untuk membantu kebutuhan konten dan
+            administrasi Anda
+          </p>
+        </div>
+
+        <!-- Service Cards -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <!-- Card 1: Content Writing -->
+          <div class="glass rounded-3xl p-6 md:p-8 card-hover group">
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 rounded-2xl dark:bg-neon-cyan/10 bg-neon-blue/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+            >
+              <i
+                class="fas fa-pen-fancy text-2xl md:text-3xl text-neon-cyan"
+              ></i>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold text-white mb-4">
+              Penulisan Konten
+            </h3>
+            <p class="text-gray-400 leading-relaxed">
+              Artikel SEO, naskah konten, dan jurnalisme. Berpengalaman di
+              Divisi Penulisan Berita (ARJUNA) dan IDN Times.
+            </p>
+            <div class="mt-6 pt-6 border-t border-white/10">
+              <ul class="space-y-2 text-gray-300 text-sm">
+                <li>
+                  <i class="fas fa-check mr-2 text-neon-cyan"></i>Artikel Blog &
+                  SEO
+                </li>
+                <li>
+                  <i class="fas fa-check mr-2 text-neon-cyan"></i>Copywriting
+                </li>
+                <li>
+                  <i class="fas fa-check mr-2 text-neon-cyan"></i>Jurnalistik
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Card 2: Admin & Notion -->
+          <div class="glass rounded-3xl p-6 md:p-8 card-hover group">
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 rounded-2xl dark:bg-purple-500/10 bg-indigo-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+            >
+              <i
+                class="fas fa-database text-2xl md:text-3xl text-purple-400 text-indigo-500"
+              ></i>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold text-white mb-4">
+              Admin & Notion Support
+            </h3>
+            <p class="text-gray-400 leading-relaxed">
+              Manajemen data, surat-menyurat, dan organisasi database Notion.
+              Pengalaman sebagai Sekretaris & Wakil Ketua Organisasi.
+            </p>
+            <div class="mt-6 pt-6 border-t border-white/10">
+              <ul class="space-y-2 text-gray-300 text-sm">
+                <li>
+                  <i
+                    class="fas fa-check mr-2 text-purple-400 text-indigo-500"
+                  ></i
+                  >Setup Notion Workspace
+                </li>
+                <li>
+                  <i
+                    class="fas fa-check mr-2 text-purple-400 text-indigo-500"
+                  ></i
+                  >Manajemen Data
+                </li>
+                <li>
+                  <i
+                    class="fas fa-check mr-2 text-purple-400 text-indigo-500"
+                  ></i
+                  >Administrasi Dokumen
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Card 3: Graphic Design -->
+          <div
+            class="glass rounded-3xl p-6 md:p-8 card-hover group md:col-span-2 lg:col-span-1"
+          >
+            <div
+              class="w-14 h-14 md:w-16 md:h-16 rounded-2xl dark:bg-pink-500/10 bg-rose-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+            >
+              <i
+                class="fas fa-paint-brush text-2xl md:text-3xl text-pink-400 text-rose-500"
+              ></i>
+            </div>
+            <h3 class="text-xl md:text-2xl font-bold text-white mb-4">
+              Desain Grafis Dasar
+            </h3>
+            <p class="text-gray-400 leading-relaxed">
+              Pembuatan poster, pamflet, dan materi visual sosial media
+              menggunakan Canva.
+            </p>
+            <div class="mt-6 pt-6 border-t border-white/10">
+              <ul class="space-y-2 text-gray-300 text-sm">
+                <li>
+                  <i class="fas fa-check mr-2 text-pink-400 text-rose-500"></i
+                  >Poster & Pamflet
+                </li>
+                <li>
+                  <i class="fas fa-check mr-2 text-pink-400 text-rose-500"></i
+                  >Social Media Content
+                </li>
+                <li>
+                  <i class="fas fa-check mr-2 text-pink-400 text-rose-500"></i
+                  >Infografis
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section
+      id="portofolio"
+      class="relative py-20 md:py-32 px-4 section-animate"
+    >
+      <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-12 md:mb-16">
+          <span
+            class="inline-block px-4 py-1 rounded-full glass text-sm text-neon-cyan font-medium mb-4"
+          >
+            Karya
+          </span>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            Portofolio <span class="text-gradient">Terbaru</span>
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Beberapa karya yang telah saya selesaikan
+          </p>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <!-- Portfolio Card 1 -->
+          <div
+            class="portfolio-card glass rounded-3xl overflow-hidden card-hover group relative"
+          >
+            <div class="aspect-video w-full overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop"
+                alt="Artikel Teknologi"
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div
+              class="overlay absolute inset-0 bg-gradient-to-t from-deep-space/90 from-deep-space/90 to-transparent to-transparent flex items-end"
+            >
+              <div class="p-6">
+                <span
+                  class="inline-block px-3 py-1 rounded-full text-xs bg-neon-cyan/20 bg-neon-blue/20 text-neon-cyan mb-2"
+                  >Artikel</span
+                >
+                <h3 class="text-xl font-bold text-white">
+                  Artikel Teknologi (Medium)
+                </h3>
+                <p class="text-gray-400 text-sm mt-2">
+                  Koleksi artikel teknologi dan tutorial pemrograman
+                </p>
+              </div>
+            </div>
+            <div class="p-6">
+              <span
+                class="inline-block px-3 py-1 rounded-full text-xs bg-neon-cyan/20 bg-neon-blue/20 text-neon-cyan mb-2"
+                >Artikel</span
+              >
+              <h3 class="text-lg font-bold text-white">
+                Artikel Teknologi (Medium)
+              </h3>
+            </div>
+          </div>
+
+          <!-- Portfolio Card 2 -->
+          <div
+            class="portfolio-card glass rounded-3xl overflow-hidden card-hover group relative"
+          >
+            <div class="aspect-video w-full overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&h=400&fit=crop"
+                alt="Opini Isu Sosial"
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div
+              class="overlay absolute inset-0 bg-gradient-to-t from-deep-space/90 from-deep-space/90 to-transparent to-transparent flex items-end"
+            >
+              <div class="p-6">
+                <span
+                  class="inline-block px-3 py-1 rounded-full text-xs bg-purple-500/20 bg-indigo-500/20 text-purple-400 text-indigo-500 mb-2"
+                  >Jurnalisme</span
+                >
+                <h3 class="text-xl font-bold text-white">Opini Isu Sosial</h3>
+                <p class="text-gray-400 text-sm mt-2">
+                  Artikel opini dan analisis isu-isu sosial terkini
+                </p>
+              </div>
+            </div>
+            <div class="p-6">
+              <span
+                class="inline-block px-3 py-1 rounded-full text-xs bg-purple-500/20 bg-indigo-500/20 text-purple-400 text-indigo-500 mb-2"
+                >Jurnalisme</span
+              >
+              <h3 class="text-lg font-bold text-white">Opini Isu Sosial</h3>
+            </div>
+          </div>
+
+          <!-- Portfolio Card 3 -->
+          <div
+            class="portfolio-card glass rounded-3xl overflow-hidden card-hover group relative md:col-span-2 lg:col-span-1"
+          >
+            <div class="aspect-video w-full overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop"
+                alt="Desain Poster SITA"
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+            <div
+              class="overlay absolute inset-0 bg-gradient-to-t from-deep-space/90 from-deep-space/90 to-transparent to-transparent flex items-end"
+            >
+              <div class="p-6">
+                <span
+                  class="inline-block px-3 py-1 rounded-full text-xs bg-pink-500/20 bg-rose-500/20 text-pink-400 text-rose-500 mb-2"
+                  >Desain</span
+                >
+                <h3 class="text-xl font-bold text-white">Desain Poster SITA</h3>
+                <p class="text-gray-400 text-sm mt-2">
+                  Desain visual untuk kegiatan organisasi
+                </p>
+              </div>
+            </div>
+            <div class="p-6">
+              <span
+                class="inline-block px-3 py-1 rounded-full text-xs bg-pink-500/20 bg-rose-500/20 text-pink-400 text-rose-500 mb-2"
+                >Desain</span
+              >
+              <h3 class="text-lg font-bold text-white">Desain Poster SITA</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Hub Section - Featured Links with Live Integrations -->
+    <section
+      id="portfolio-hub"
+      class="relative py-20 md:py-32 px-4 section-animate"
+    >
+      <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-12 md:mb-16">
+          <span
+            class="inline-block px-4 py-1 rounded-full glass text-sm text-neon-cyan font-medium mb-4"
+          >
+            Lihat Karya Saya
+          </span>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            Portfolio <span class="text-gradient">Hub</span>
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Akses langsung ke semua platform dan karya saya - Data Realtime!
+          </p>
+        </div>
+
+        <!-- Lynk.id Embed Section -->
+        <div class="mb-12">
+          <div class="glass rounded-3xl p-6 md:p-8 overflow-hidden">
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-14 h-14 rounded-2xl bg-gradient-to-br from-neon-cyan to-purple-500 flex items-center justify-center"
+              >
+                <i class="fas fa-link text-2xl text-white"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white">Lynk.id</h3>
+                <p class="text-gray-400 text-sm">
+                  @thegreenjacket - Semua Link Saya
+                </p>
+              </div>
+              <a
+                href="https://lynk.id/thegreenjacket"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="ml-auto px-4 py-2 rounded-xl bg-gradient-to-r from-neon-cyan to-purple-500 text-white font-semibold hover:scale-105 transition-transform"
+              >
+                <i class="fas fa-external-link-alt mr-2"></i>Buka
+              </a>
+            </div>
+            <!-- Lynk.id Static Mockup (Since iframe is blocked by X-Frame-Options) -->
+            <div
+              class="relative bg-gray-900 rounded-2xl overflow-hidden"
+              style="height: 400px"
+            >
+              <!-- Background Blur -->
+              <div
+                class="absolute inset-0 bg-gradient-to-b from-gray-800 to-gray-900"
+              ></div>
+
+              <!-- Mock Content -->
+              <div
+                class="relative z-10 flex flex-col items-center justify-center h-full p-6 text-center"
+              >
+                <div
+                  class="w-20 h-20 rounded-full bg-white mb-4 overflow-hidden border-4 border-white/10 shadow-lg"
+                >
+                  <!-- Placeholder Avatar if needed, or just initials -->
+                  <div
+                    class="w-full h-full bg-gradient-to-br from-neon-cyan to-blue-600 flex items-center justify-center text-2xl font-bold text-white"
+                  >
+                    FR
+                  </div>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-1">Fadhly Robby</h4>
+                <p class="text-gray-400 text-sm mb-6">@thegreenjacket</p>
+
+                <!-- Mock Links Stack -->
+                <div class="w-full max-w-xs space-y-3">
+                  <div
+                    class="w-full h-12 bg-white/5 rounded-full flex items-center px-4 border border-white/10"
+                  >
+                    <div class="w-6 h-6 rounded-full bg-gray-700"></div>
+                    <div class="h-2 w-24 bg-gray-700 rounded ml-3"></div>
+                  </div>
+                  <div
+                    class="w-full h-12 bg-white/5 rounded-full flex items-center px-4 border border-white/10 opacity-70"
+                  >
+                    <div class="w-6 h-6 rounded-full bg-gray-700"></div>
+                    <div class="h-2 w-20 bg-gray-700 rounded ml-3"></div>
+                  </div>
+                  <div
+                    class="w-full h-12 bg-white/5 rounded-full flex items-center px-4 border border-white/10 opacity-40"
+                  >
+                    <div class="w-6 h-6 rounded-full bg-gray-700"></div>
+                    <div class="h-2 w-28 bg-gray-700 rounded ml-3"></div>
+                  </div>
+                </div>
+
+                <a
+                  href="https://lynk.id/thegreenjacket"
+                  target="_blank"
+                  class="mt-8 px-6 py-2 bg-gradient-to-r from-neon-cyan to-blue-600 rounded-full text-white font-semibold hover:scale-105 transition-transform shadow-lg shadow-neon-cyan/20"
+                >
+                  Buka Profil Lynk.id &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Medium Articles - Live RSS Feed -->
+        <div class="mb-12">
+          <div class="glass rounded-3xl p-6 md:p-8">
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-14 h-14 rounded-2xl bg-gray-900 flex items-center justify-center"
+              >
+                <i class="fab fa-medium text-3xl text-white"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white">Medium</h3>
+                <p class="text-gray-400 text-sm">Artikel Terbaru - Live Feed</p>
+              </div>
+              <a
+                href="https://medium.com/@thegreenjacket"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="ml-auto px-4 py-2 rounded-xl bg-gray-800 text-white font-semibold hover:bg-gray-700 transition-colors"
+              >
+                <i class="fas fa-external-link-alt mr-2"></i>Lihat Semua
+              </a>
+            </div>
+
+            <!-- Articles Container - Will be populated by JavaScript -->
+            <div
+              id="medium-articles"
+              class="grid md:grid-cols-2 lg:grid-cols-3 gap-4"
+            >
+              <!-- Loading Skeleton -->
+              <div
+                class="article-skeleton p-4 rounded-xl bg-white/5 animate-pulse"
+              >
+                <div class="h-4 bg-white/10 rounded mb-3 w-3/4"></div>
+                <div class="h-3 bg-white/10 rounded mb-2"></div>
+                <div class="h-3 bg-white/10 rounded w-5/6"></div>
+              </div>
+              <div
+                class="article-skeleton p-4 rounded-xl bg-white/5 animate-pulse"
+              >
+                <div class="h-4 bg-white/10 rounded mb-3 w-3/4"></div>
+                <div class="h-3 bg-white/10 rounded mb-2"></div>
+                <div class="h-3 bg-white/10 rounded w-5/6"></div>
+              </div>
+              <div
+                class="article-skeleton p-4 rounded-xl bg-white/5 animate-pulse"
+              >
+                <div class="h-4 bg-white/10 rounded mb-3 w-3/4"></div>
+                <div class="h-3 bg-white/10 rounded mb-2"></div>
+                <div class="h-3 bg-white/10 rounded w-5/6"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- IDN Times Section -->
+        <div class="mb-12">
+          <div class="glass rounded-3xl p-6 md:p-8">
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center"
+              >
+                <i class="fas fa-newspaper text-2xl text-white"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white">IDN Times</h3>
+                <span
+                  class="inline-block px-2 py-0.5 rounded-full text-xs font-semibold bg-red-500/20 text-red-400"
+                  >90+ Artikel Terpublikasi</span
+                >
+              </div>
+              <a
+                href="https://www.idntimes.com/author/fadhly-robby-pm3y2"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="ml-auto px-4 py-2 rounded-xl bg-gradient-to-r from-red-500 to-red-600 text-white font-semibold hover:scale-105 transition-transform"
+              >
+                <i class="fas fa-external-link-alt mr-2"></i>Baca Artikel
+              </a>
+            </div>
+
+            <!-- IDN Times Articles -->
+            <div
+              id="idn-articles"
+              class="grid md:grid-cols-2 lg:grid-cols-4 gap-4"
+            >
+              <!-- Loading Skeletons -->
+              <div class="p-4 rounded-xl bg-white/5 animate-pulse h-24"></div>
+              <div class="p-4 rounded-xl bg-white/5 animate-pulse h-24"></div>
+              <div class="p-4 rounded-xl bg-white/5 animate-pulse h-24"></div>
+              <div class="p-4 rounded-xl bg-white/5 animate-pulse h-24"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instagram & LinkedIn Row -->
+        <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+          <!-- Instagram Card with Embed -->
+          <div class="glass rounded-3xl p-6 md:p-8 overflow-hidden">
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center"
+              >
+                <i class="fab fa-instagram text-2xl text-white"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white">Instagram</h3>
+                <p class="text-gray-400 text-sm">@tgj.daily</p>
+              </div>
+              <a
+                href="https://www.instagram.com/tgj.daily/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="ml-auto px-4 py-2 rounded-xl bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white font-semibold hover:scale-105 transition-transform"
+              >
+                <i class="fas fa-external-link-alt mr-2"></i>Follow
+              </a>
+            </div>
+
+            <!-- Instagram Preview Grid -->
+            <div id="instagram-posts" class="grid grid-cols-3 gap-2">
+              <!-- Content will be loaded by JS -->
+              <div
+                class="aspect-square rounded-xl bg-white/5 animate-pulse"
+              ></div>
+              <div
+                class="aspect-square rounded-xl bg-white/5 animate-pulse"
+              ></div>
+              <div
+                class="aspect-square rounded-xl bg-white/5 animate-pulse"
+              ></div>
+            </div>
+            <p class="text-gray-400 text-sm mt-4 text-center">
+              Klik untuk melihat konten terbaru di Instagram
+            </p>
+          </div>
+
+          <!-- LinkedIn Card with Badge -->
+          <div class="glass rounded-3xl p-6 md:p-8">
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center"
+              >
+                <i class="fab fa-linkedin-in text-2xl text-white"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-white">LinkedIn</h3>
+                <p class="text-gray-400 text-sm">
+                  Muhammad Auliya Fadhly Robby
+                </p>
+              </div>
+              <a
+                href="https://www.linkedin.com/in/fadhlyrobby/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="ml-auto px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold hover:scale-105 transition-transform"
+              >
+                <i class="fas fa-external-link-alt mr-2"></i>Connect
+              </a>
+            </div>
+
+            <!-- LinkedIn Badge Embed -->
+            <div class="bg-blue-900/20 rounded-xl p-6 text-center">
+              <div
+                class="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center"
+              >
+                <i class="fab fa-linkedin-in text-3xl text-white"></i>
+              </div>
+              <h4 class="text-white font-bold text-lg mb-1">
+                Muhammad Auliya Fadhly Robby
+              </h4>
+              <p class="text-gray-400 text-sm mb-4">
+                Mahasiswa Informatika | Content Writer | 90+ Artikel
+              </p>
+
+              <!-- Professional Tags -->
+              <div class="flex flex-wrap justify-center gap-2">
+                <span
+                  class="px-3 py-1 rounded-full text-xs bg-blue-500/20 text-blue-400"
+                  >Content Writer</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full text-xs bg-blue-500/20 text-blue-400"
+                  >Informatika</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full text-xs bg-blue-500/20 text-blue-400"
+                  >UPN Veteran</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="relative py-20 md:py-32 px-4 section-animate">
+      <div class="max-w-4xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-12 md:mb-16">
+          <span
+            class="inline-block px-4 py-1 rounded-full glass text-sm text-neon-cyan font-medium mb-4"
+          >
+            Perjalanan
+          </span>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            Experience & <span class="text-gradient">Education</span>
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Perjalanan karir dan pendidikan yang membentuk saya
+          </p>
+        </div>
+
+        <!-- Timeline Items -->
+        <div class="space-y-8">
+          <!-- Timeline Item 1 -->
+          <div
+            class="timeline-item relative pl-8 glass rounded-2xl p-6 card-hover"
+          >
+            <div
+              class="absolute left-0 top-6 w-4 h-4 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 -translate-x-1/2"
+            ></div>
+            <div class="flex flex-wrap items-center gap-3 mb-3">
+              <span
+                class="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/20 dark:text-cyan-400 text-cyan-600"
+                >Agustus 2025 - Sekarang</span
+              >
+              <span class="text-gray-400 text-sm">📍 Yogyakarta</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">
+              Mahasiswa Informatika
+            </h3>
+            <p class="text-gray-400">
+              UPN "Veteran" Yogyakarta - Fakultas Teknik Industri, Program Studi
+              Informatika
+            </p>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div
+            class="timeline-item relative pl-8 glass rounded-2xl p-6 card-hover"
+          >
+            <div
+              class="absolute left-0 top-6 w-4 h-4 rounded-full bg-gradient-to-r from-purple-400 to-pink-500 -translate-x-1/2"
+            ></div>
+            <div class="flex flex-wrap items-center gap-3 mb-3">
+              <span
+                class="px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/20 text-purple-400 text-purple-600"
+                >2023 - Sekarang</span
+              >
+              <span class="text-gray-400 text-sm">ðŸ“ 90+ Artikel</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">
+              Content Writer - IDN Times
+            </h3>
+            <p class="text-gray-400">
+              Menulis artikel untuk berbagai kategori: Life, Tech, Food, Travel.
+              Fokus pada konten yang informatif dan engaging.
+            </p>
+          </div>
+
+          <!-- Timeline Item 3 -->
+          <div
+            class="timeline-item relative pl-8 glass rounded-2xl p-6 card-hover"
+          >
+            <div
+              class="absolute left-0 top-6 w-4 h-4 rounded-full bg-gradient-to-r from-emerald-400 to-teal-500 -translate-x-1/2"
+            ></div>
+            <div class="flex flex-wrap items-center gap-3 mb-3">
+              <span
+                class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 dark:text-emerald-400 text-emerald-600"
+                >Agustus 2023 - Juni 2024</span
+              >
+              <span class="text-gray-400 text-sm">🎓 Organisasi</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">
+              Wakil Ketua IPMA & Ketua Divisi di Berbagai Organisasi
+            </h3>
+            <p class="text-gray-400">
+              Wakil Ketua IPMA SMA N 5 Magelang, Ketua Divisi Desain Grafis
+              SITA, Ketua DPI ARJUNA, dan Sekretaris KA'BAH. Aktif dalam 5
+              organisasi sekolah.
+            </p>
+          </div>
+
+          <!-- Timeline Item 4 -->
+          <div
+            class="timeline-item relative pl-8 glass rounded-2xl p-6 card-hover"
+          >
+            <div
+              class="absolute left-0 top-6 w-4 h-4 rounded-full bg-gradient-to-r from-orange-400 to-amber-500 -translate-x-1/2"
+            ></div>
+            <div class="flex flex-wrap items-center gap-3 mb-3">
+              <span
+                class="px-3 py-1 rounded-full text-xs font-semibold bg-orange-500/20 dark:text-orange-400 text-orange-600"
+                >Juli 2022 - Mei 2025</span
+              >
+              <span class="text-gray-400 text-sm">🎓 Pendidikan</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">
+              SMA Negeri 5 Magelang
+            </h3>
+            <p class="text-gray-400">
+              Aktif dalam berbagai organisasi kesiswaan dengan fokus pada
+              strategi komunikasi, publikasi, dan kepemimpinan.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="kontak" class="relative py-20 md:py-32 px-4 section-animate">
+      <div class="max-w-4xl mx-auto">
+        <!-- Section Content -->
+        <div class="glass rounded-3xl p-8 md:p-12 text-center">
+          <span
+            class="inline-block px-4 py-1 rounded-full glass text-sm text-neon-cyan font-medium mb-4"
+          >
+            Hubungi
+          </span>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            Mari <span class="text-gradient">Bekerja Sama</span>
+          </h2>
+          <p class="text-gray-400 max-w-xl mx-auto mb-10 text-lg">
+            Butuh bantuan untuk tulisan atau administrasi? Mari diskusi dan
+            wujudkan ide Anda.
+          </p>
+
+          <!-- Contact Buttons -->
+          <div
+            class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
+          >
+            <a
+              href="https://wa.me/6287845352183"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-2xl shadow-lg shadow-green-500/30 hover:shadow-green-500/50 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
+            >
+              <i class="fab fa-whatsapp text-xl"></i>
+              0878-4535-2183
+            </a>
+            <a
+              href="mailto:mauliyafadhly@gmail.com"
+              class="w-full sm:w-auto px-8 py-4 glass text-white font-semibold rounded-2xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
+            >
+              <i class="fas fa-envelope text-xl text-neon-cyan"></i>
+              mauliyafadhly@gmail.com
+            </a>
+          </div>
+
+          <!-- Social Links -->
+          <div class="flex items-center justify-center gap-4 flex-wrap">
+            <a
+              href="https://www.linkedin.com/in/fadhlyrobby/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-400 hover:text-blue-500 hover:text-blue-400 hover:scale-110 transition-all duration-300"
+              title="LinkedIn"
+            >
+              <i class="fab fa-linkedin-in text-xl"></i>
+            </a>
+            <a
+              href="https://medium.com/@thegreenjacket"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-400 hover:text-gray-900 hover:text-white hover:scale-110 transition-all duration-300"
+              title="Medium"
+            >
+              <i class="fab fa-medium text-xl"></i>
+            </a>
+            <a
+              href="https://www.idntimes.com/author/fadhly-robby-pm3y2"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-400 hover:text-red-500 hover:text-red-400 hover:scale-110 transition-all duration-300"
+              title="IDN Times"
+            >
+              <i class="fas fa-newspaper text-xl"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/tgj.daily/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-400 hover:text-pink-500 hover:text-pink-400 hover:scale-110 transition-all duration-300"
+              title="Instagram"
+            >
+              <i class="fab fa-instagram text-xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative py-8 px-4 border-t border-white/10">
+      <div class="max-w-6xl mx-auto text-center">
+        <p class="text-gray-400 text-sm">
+          Â© 2026 <span class="text-gradient font-semibold">Fadhly.dev</span>.
+          Dibuat dengan â¤ï¸ dan banyak kopi.
+        </p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Mobile Menu
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenuClose = document.getElementById("mobile-menu-close");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const menuOverlay = document.getElementById("menu-overlay");
+      const mobileLinks = document.querySelectorAll(".mobile-link");
+
+      function toggleMobileMenu() {
+        mobileMenu.classList.toggle("active");
+        menuOverlay.classList.toggle("active");
+      }
+
+      function closeMobileMenu() {
+        mobileMenu.classList.remove("active");
+        menuOverlay.classList.remove("active");
+      }
+
+      mobileMenuBtn.addEventListener("click", toggleMobileMenu);
+      mobileMenuClose.addEventListener("click", closeMobileMenu);
+      menuOverlay.addEventListener("click", closeMobileMenu);
+
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", closeMobileMenu);
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (
+          !mobileMenu.contains(e.target) &&
+          !mobileMenuBtn.contains(e.target)
+        ) {
+          closeMobileMenu();
+        }
+      });
+
+      // Navbar Scroll Effect & Scroll Progress
+      const navbar = document.getElementById("navbar");
+      const scrollProgress = document.getElementById("scroll-progress");
+      let lastScroll = 0;
+
+      window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+        const scrollHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (currentScroll / scrollHeight) * 100;
+
+        // Update scroll progress bar
+        scrollProgress.style.width = scrollPercent + "%";
+
+        if (currentScroll > 50) {
+          navbar.classList.add("shadow-xl");
+        } else {
+          navbar.classList.remove("shadow-xl");
+        }
+
+        lastScroll = currentScroll;
+      });
+
+      // Section Animation on Scroll
+      const sections = document.querySelectorAll(".section-animate");
+
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach((section) => {
+        observer.observe(section);
+      });
+
+      // Smooth Scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // --- CONFIGURATION ---
+      const config = {
+        mediumUsername: "thegreenjacket", // Fixed username
+        instagramUsername: "tgj.daily",
+        idnAuthorUrl: "https://www.idntimes.com/author/fadhly-robby-pm3y2",
+      };
+
+      // --- MEDIUM INTEGRATION ---
+      const mediumRSS = `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${config.mediumUsername}`;
+
+      const mediumMockData = [
+        {
+          title: "Membangun Personal Branding di Era Digital",
+          pubDate: "2025-01-01 10:00:00",
+          link: `https://medium.com/@${config.mediumUsername}`,
+          thumbnail:
+            "https://images.unsplash.com/photo-1499750310159-5254f5336dd9?w=600&h=400&fit=crop",
+          content: "Panduan lengkap membangun citra diri yang profesional...",
+        },
+        {
+          title: "Tutorial: Dasar-Dasar React untuk Pemula",
+          pubDate: "2024-12-25 09:30:00",
+          link: `https://medium.com/@${config.mediumUsername}`,
+          thumbnail:
+            "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=400&fit=crop",
+          content: "Belajar framework React JS dari nol...",
+        },
+        {
+          title: "Analisis Tren Teknologi 2026",
+          pubDate: "2024-12-10 14:15:00",
+          link: `https://medium.com/@${config.mediumUsername}`,
+          thumbnail:
+            "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop",
+          content: "Prediksi perkembangan teknologi masa depan...",
+        },
+      ];
+
+      async function fetchMediumArticles() {
+        const articlesContainer = document.getElementById("medium-articles");
+        if (!articlesContainer) return;
+
+        try {
+          // Set timeout to avoid infinite loading
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+          const response = await fetch(mediumRSS, {
+            signal: controller.signal,
+          });
+          clearTimeout(timeoutId);
+
+          const data = await response.json();
+
+          if (data.status === "ok") {
+            renderMediumArticles(data.items.slice(0, 3));
+          } else {
+            throw new Error("API status not ok");
+          }
+        } catch (error) {
+          console.warn("Using Medium mock data due to fetch error:", error);
+          renderMediumArticles(mediumMockData);
+        }
+      }
+
+      function renderMediumArticles(articles) {
+        const articlesContainer = document.getElementById("medium-articles");
+        articlesContainer.innerHTML = "";
+
+        articles.forEach((article) => {
+          let image = article.thumbnail;
+          if (!image && article.content) {
+            const imgMatch = article.content.match(/<img[^>]+src="([^">]+)"/);
+            if (imgMatch) image = imgMatch[1];
+          }
+          if (!image) {
+            image =
+              "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop";
+          }
+
+          const date = new Date(article.pubDate).toLocaleDateString("id-ID", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          });
+
+          const card = document.createElement("a");
+          card.href = article.link;
+          card.target = "_blank";
+          card.rel = "noopener noreferrer";
+          card.className =
+            "group block bg-white/5 rounded-xl overflow-hidden hover:bg-white/10 transition-colors h-full flex flex-col";
+
+          card.innerHTML = `
+            <div class="h-40 overflow-hidden relative">
+               <img src="${image}" alt="${article.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            </div>
+            <div class="p-4 flex-1 flex flex-col">
+               <div class="flex items-center gap-2 mb-2">
+                  <span class="text-xs text-neon-cyan bg-neon-cyan/10 px-2 py-0.5 rounded-full">Article</span>
+                  <span class="text-xs text-gray-400">${date}</span>
+               </div>
+               <h4 class="text-white font-bold line-clamp-2 mb-2 group-hover:text-neon-cyan transition-colors">${article.title}</h4>
+               <div class="mt-auto pt-2 flex items-center text-xs text-gray-400 font-medium group-hover:text-white transition-colors">
+                  Baca di Medium <i class="fas fa-arrow-right ml-1"></i>
+               </div>
+            </div>
+          `;
+          articlesContainer.appendChild(card);
+        });
+      }
+
+      // --- IDN TIMES SIMULATION ---
+      const idnMockData = [
+        {
+          category: "Life",
+          title: "5 Tips Produktivitas Pagi Hari",
+          icon: "heart",
+          color: "red",
+        },
+        {
+          category: "Tech",
+          title: "Review Laptop Gaming 2025",
+          icon: "laptop",
+          color: "blue",
+        },
+        {
+          category: "Food",
+          title: "Resep Kopi Kekinian",
+          icon: "utensils",
+          color: "orange",
+        },
+        {
+          category: "Travel",
+          title: "Hidden Gem di Yogyakarta",
+          icon: "plane",
+          color: "green",
+        },
+      ];
+
+      function renderIdnSimulation() {
+        const container = document.getElementById("idn-articles");
+        if (!container) return;
+        container.innerHTML = "";
+
+        idnMockData.forEach((item) => {
+          const el = document.createElement("a");
+          el.href = config.idnAuthorUrl;
+          el.target = "_blank";
+          el.className = `p-4 rounded-xl bg-${item.color}-500/10 hover:bg-${item.color}-500/20 transition-colors group`;
+          el.innerHTML = `
+             <div class="flex items-center gap-3">
+                <i class="fas fa-${item.icon} text-${item.color}-400 group-hover:scale-110 transition-transform"></i>
+                <div>
+                  <p class="text-white font-semibold">${item.category}</p>
+                  <p class="text-gray-400 text-xs line-clamp-1">${item.title}</p>
+                </div>
+             </div>
+           `;
+          container.appendChild(el);
+        });
+      }
+
+      // --- INSTAGRAM SIMULATION ---
+      function renderInstagramSimulation() {
+        const container = document.getElementById("instagram-posts");
+        if (!container) return;
+
+        // Simulating a grid of 3 latest posts using unsplash images
+        const images = [
+          "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1529692236671-ace85a1955fb?w=400&h=400&fit=crop",
+          "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop",
+        ];
+
+        container.innerHTML = "";
+        images.forEach((img) => {
+          const el = document.createElement("a");
+          el.href = `https://www.instagram.com/${config.instagramUsername}`;
+          el.target = "_blank";
+          el.className =
+            "aspect-square rounded-xl overflow-hidden relative group";
+          el.innerHTML = `
+             <img src="${img}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+             <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <i class="fab fa-instagram text-2xl text-white"></i>
+             </div>
+           `;
+          container.appendChild(el);
+        });
+      }
+
+      // Initialize all feeds
+      window.addEventListener("DOMContentLoaded", () => {
+        fetchMediumArticles();
+        renderIdnSimulation();
+        renderInstagramSimulation();
+      });
+    </script>
+  </body>
+</html>
