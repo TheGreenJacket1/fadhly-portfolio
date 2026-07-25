@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio resmi Fadhly. Seorang Web Developer yang berfokus pada pembuatan website yang cepat, responsif, dan modern.">
+    <meta name="author" content="Fadhly">
+    
+    <!-- Open Graph (Untuk preview saat di-share di WhatsApp/Sosmed) -->
+    <meta property="og:title" content="Fadhly - Portfolio">
+    <meta property="og:description" content="Web Developer & Tech Enthusiast. Lihat proyek dan pengalaman saya di sini.">
+    <meta property="og:type" content="website">
+
+    <title>Fadhly | Web Developer Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link CSS langsung di folder yang sama -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo">Fadhly<span>.</span></a>
+            <nav class="nav-links" id="nav-menu">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+                <button id="hamburger" class="hamburger" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <p class="hero-greeting">Halo, Saya</p>
+            <h1 class="hero-title">Fadhly</h1>
+            <h2 class="hero-subtitle">Web Developer & UI Enthusiast</h2>
+            <p class="hero-desc">Saya membangun pengalaman web yang indah, fungsional, dan responsif. Fokus pada detail dan performa tinggi.</p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">Lihat Karya</a>
+                <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">Tentang Saya</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Saya adalah seorang developer yang passionate dalam menulis kode bersih dan merancang antarmuka yang intuitif. Dengan pengalaman dalam HTML, CSS, JavaScript, dan berbagai framework modern, saya siap membantu mewujudkan ide Anda menjadi produk digital nyata.</p>
+                    <div class="skills">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/400x500" alt="Foto Fadhly" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Proyek Terbaru</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Proyek 1" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Nama Proyek 1</h3>
+                        <p>Deskripsi singkat tentang proyek ini. Apa teknologinya dan apa fungsinya.</p>
+                        <div class="project-tags">
+                            <span>React</span> <span>Tailwind</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Live Demo</a>
+                            <a href="#" target="_blank">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Proyek 2" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Nama Proyek 2</h3>
+                        <p>Deskripsi singkat tentang proyek ini. Apa teknologinya dan apa fungsinya.</p>
+                        <div class="project-tags">
+                            <span>Vue</span> <span>Node.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank">Live Demo</a>
+                            <a href="#" target="_blank">Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container contact-container">
+            <h2 class="section-title">Mari Bekerja Sama</h2>
+            <p>Punya proyek menarik atau ingin menyapa? Kirim pesan ke email saya.</p>
+            <a href="mailto:fadhly@email.com" class="btn btn-primary btn-large">Kirim Email</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> Fadhly. Dibuat dengan ❤️ dan kode.</p>
+        </div>
+    </footer>
+
+    <!-- Link JS langsung di folder yang sama -->
+    <script src="script.js"></script>
+</body>
+</html>
